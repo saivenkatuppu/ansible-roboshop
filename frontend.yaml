@@ -10,7 +10,7 @@
    - name: install nginx
      ansible.builtin.dnf:
       name: nginx
-      state: present 
+      state: present
 
    - name: start and enable nginx
      ansible.builtin.service:
@@ -53,4 +53,3 @@
      ansible.builtin.service:
        name: nginx
        state: restarted
-       
