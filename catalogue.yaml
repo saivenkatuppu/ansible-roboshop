@@ -5,7 +5,7 @@
     - name: disable catalogue services
       ansible.builtin.command: dnf module disable nodejs 
       
-    - name: disable catalogue services
+    - name: enable catalogue services
       ansible.builtin.command: dnf module enable nodejs:20
 
     - name: installing nodejs
