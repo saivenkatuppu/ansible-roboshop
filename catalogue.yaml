@@ -41,8 +41,8 @@
        path: /app
     - name: copy module
       ansible.builtin.copy:
-      src: catalogue.service
-      dest: /etc/systemd/system/catalogue.service
+       src: catalogue.service
+       dest: /etc/systemd/system/catalogue.service
 
     - name: system daemon_reload
       ansible.builtin.systemd_service:
