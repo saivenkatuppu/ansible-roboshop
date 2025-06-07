@@ -59,13 +59,20 @@
       ansible.builtin.copy:
        src: mongo.repo
        dest: /etc/yum.repos.d/mongo.repo
+
     - name: install mongodb client
-      ansible.builtin.service:
+      ansible.builtin.dnf:
        name: mongodb-mongosh
        state: present
 
     - name: loaded products
-      community.mongodb.mongodb_shell:
-       file: </app/db/master-data.js
-       idempotent: yes
-       login_host: mongodb.calvio.store
+      ansible.builtin.command: mongosh --host mongodb.calvio.store --eval 'db.getMongo().getDBNames().indexOf("catalogue")'   
+      register: catalogue_output
+
+    - name: print catalogue output
+      ansible.builtin.debug:
+       msg : "{{ catalogue_output }}"
+
+    - name: load products
+      ansible.builtin.command: mongosh --host mongodb.calvio.store </app/db/master-data.js
+      when: catalogue_output.stdout | int < 0
