@@ -2,11 +2,12 @@
   become: yes
   hosts: mongodb                        #https://github.com/saivenkatuppu/ansible-roboshop.git
   tasks:
-    - name: copy mongodb repo
-      ansible.builtin.copy:
+   - name: copy mongodb repo
+     ansible.builtin.copy:
        src: mongo.repo
        dest: /etc/yum.repos.d/mongo.repo
 
-    - name: installing the mongodb
-      ansible.builtin.dnf:
-       - name: mongo         
+   - name: installing the mongodb
+     ansible.builtin.dnf:
+       - name: mongodb-org -y
+         status: present       
