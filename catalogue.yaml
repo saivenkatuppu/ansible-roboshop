@@ -68,4 +68,4 @@
       community.mongodb.mongodb_shell:
        file: </app/db/master-data.js
        idempotent: yes
-      login_host: mongodb.calvio.store
+       login_host: mongodb.calvio.store
