@@ -10,4 +10,4 @@
    - name: installing the mongodb
      ansible.builtin.dnf:
        - name: mongodb-org -y
-         status: present       
+         state: present       
