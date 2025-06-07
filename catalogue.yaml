@@ -32,5 +32,5 @@
 
     - name: extract catalogue cataloguecode
       ansible.builtin.unarchive:
-      src: /tmp/catalogue.zip
-      dest: /app
+       src: /tmp/catalogue.zip
+       dest: /app
