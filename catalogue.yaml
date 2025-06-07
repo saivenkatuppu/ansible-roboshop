@@ -55,3 +55,17 @@
        state: started
        enabled: yes
 
+    - name: copy mongodb repo
+      ansible.builtin.copy:
+       src: mongo.repo
+       dest: /etc/yum.repos.d/mongo.repo
+    - name: install mongodb client
+      ansible.builtin.service:
+       name: mongodb-mongosh
+       state: present
+
+    - name: loaded products
+      community.mongodb.mongodb_shell:
+       file: </app/db/master-data.js
+       idempotent: yes
+      login_host: mongodb.calvio.store
