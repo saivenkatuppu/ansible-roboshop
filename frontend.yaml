@@ -5,7 +5,7 @@
    - name: module disable nginx -y
      ansible.builtin.command: dnf module disable nginx -y
    - name: dnf module enable nginx:1.24 -y
-     ansible.builtin.command: ddnf module enable nginx:1.24 -y
+     ansible.builtin.command: dnf module enable nginx:1.24 -y
 
    - name: install nginx
      ansible.builtin.dnf:
@@ -18,12 +18,12 @@
       state: started
       enabled: yes
 
-   - name: remove htmp directory
+   - name: remove html directory
      ansible:builtin.file:
       path: /usr/share/nginx/html
       state: absent
 
-   - name: create a html directory
+   - name: create html directory
      ansible:builtin.file:
       path: /usr/share/nginx/html
       state: directory
