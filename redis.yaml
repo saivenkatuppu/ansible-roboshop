@@ -17,7 +17,7 @@
    - name: allowing remove connections
      ansible.builtin.lineinfile:
       path: /etc/redis/redis.conf
-      regexp: '127.0.0.1'
+      regexp: 127.0.0.1
       replace: 0.0.0.0
 
    - name: allowing remove connections
