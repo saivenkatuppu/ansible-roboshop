@@ -1,6 +1,6 @@
 - name: frontend 
   become: yes
-  hosts: frontend
+  hosts: redis
   tasks:
    - name: disable redis module 
      ansible.builtin.command: dnf module disable redis -y
