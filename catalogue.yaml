@@ -47,7 +47,7 @@
    - name: systemctl deamon reload
      ansible.builtin.systemd_service:
       daemon_reload: true
-      
+
    - name: enable the catalogue
      ansible.builtin.service:
        name: catalogue
@@ -61,7 +61,7 @@
 
    - name: install mongodb client
      ansible.builtin.dnf:
-      name:  mongodb-mongosh -y
+      name:  mongodb-mongosh
       state: present   
 
 
